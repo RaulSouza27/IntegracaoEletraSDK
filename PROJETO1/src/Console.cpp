@@ -4,9 +4,6 @@
 #include "religadores.h"
 #include<iostream>
 
-
-
-// Raul
 int main()
 {
     MedidoresDeEnergia my_medidores_de_energia;
