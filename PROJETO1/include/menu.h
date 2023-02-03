@@ -1,7 +1,7 @@
-#include "string"
+#include <string>
 #include<iostream>
 
-class Intro
+class Menu
 {
     public:
     void display_introducao()

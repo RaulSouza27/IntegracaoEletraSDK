@@ -1,4 +1,4 @@
-#include "intro.h"
+#include "menu.h"
 #include "medidores_de_energia.h"
 #include "medidores_de_agua.h"
 #include "religadores.h"
@@ -14,7 +14,7 @@ int main()
     MedidoresDeAgua my_medidores_de_agua;
     MedidoresDeAgua my_medidor_zlink;
     Religadores my_religadores;
-    Intro my_intro;
+    Menu my_intro;
     int select=0;
     int desc;
     int prod;
@@ -79,7 +79,13 @@ int main()
         if(select==4)
         {
             my_medidores_de_energia.display_medidores_de_energia();
+            my_medidores_apolo.display_linha_apolo();
+            my_medidores_ares.display_linha_ares();
+            my_medidores_cronos.display_linha_cronos();
+            my_medidores_zeus.display_linha_zeus();
             my_medidores_de_agua.display_medidores_de_agua();
+            my_medidor_zlink.display_linha_zlink();
+            my_religadores.display_religadores();
             my_religadores.display_religadores();
         }
         my_intro.display_introducao();

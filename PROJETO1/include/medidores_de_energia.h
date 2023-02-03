@@ -1,4 +1,4 @@
-#include "string"
+#include <string>
 #include <iostream>
 
 class MedidoresDeEnergia
@@ -13,9 +13,9 @@ public:
     }
     void display_linha_zeus()
     {
-        std::cout << "Zeus 8021" << std::endl;
-        std::cout << "Zeus 8031" << std::endl;
-        std::cout << "Zeus 8023" << std::endl;
+        std::cout << zeus8021 << std::endl;
+        std::cout << zeus8031 << std::endl;
+        std::cout << zeus8023 << std::endl;
     }
     void display_linha_ares()
     {
@@ -46,5 +46,9 @@ private:
     const std::string apolo_line = "Linha Apolo";
     const std::string ares_line = "Linha Ares";
     const std::string cronos_line = "Linha Cronos";
-
+    
+    const std::string zeus8021 = "Zeus 8021";
+    const std::string zeus8031 = "Zeus 8031";
+    const std::string zeus8023 = "Zeus 8023";
+    const std::string zeus8025 = "Zeus 8025";
 };
