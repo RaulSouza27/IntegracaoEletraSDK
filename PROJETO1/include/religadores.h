@@ -1,13 +1,11 @@
+#pragma once
 #include <string>
 #include<iostream>
 
 class Religadores
 {
     public:
-    void display_religadores()
-    {
-        std::cout<<religadores<<std::endl;
-    }
+    void display_religadores();
     private:
         const std::string religadores = "religadores";
 };

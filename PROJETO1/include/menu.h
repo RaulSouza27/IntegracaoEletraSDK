@@ -1,19 +1,10 @@
-#include <string>
-#include<iostream>
+#pragma once
 
 class Menu
 {
     public:
-    void display_introducao()
-    {
-        std::cout<<"\nBem vindo ao portifólio de produtos eletra\n"<<std::endl;
-        std::cout<<"\tabaixo segue a lista de produtos"<<std::endl;
-        std::cout<<"Para acessar a linha de produtos digite o respectivo número que deseja acessar:"<<std::endl;
-        std::cout<<"1-Medidores de energia"<<std::endl;
-        std::cout<<"2-Medidores de água"<<std::endl;
-        std::cout<<"3-Religadores"<<std::endl;
-        std::cout<<"4-Todos os produtos"<<std::endl;
-        std::cout<<"Aperte 5 caso deseje sair"<<std::endl;
-    }
-
+    void display_introducao();
+    void display_selecao();
+    void display_energy_meter();
+    void display_water_meter();
 };
