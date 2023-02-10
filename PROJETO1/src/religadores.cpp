@@ -1,7 +1,9 @@
 #include "religadores.h"
+#include "utilidades.h"
 #include <iostream>
 
 void Religadores::display_religadores()
 {
-    std::cout<<religadores<<std::endl;
+    print_vetores_string(religadores);
+
 }

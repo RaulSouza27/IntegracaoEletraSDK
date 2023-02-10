@@ -4,7 +4,7 @@
 
 void Menu::display_introducao()
 {
-    std::cout<<"\nBem vindo ao portifólio de produtos eletra\n"<<std::endl;
+    std::cout<<"\n10Bem vindo ao portifólio de produtos eletra\n"<<std::endl;
     std::cout<<"\tabaixo segue a lista de produtos"<<std::endl;
     std::cout<<"Para acessar a linha de produtos digite o respectivo número que deseja acessar:"<<std::endl;
     std::cout<<"1-Medidores de energia"<<std::endl;
@@ -23,7 +23,7 @@ void Menu::display_energy_meter()
 
 void Menu::display_selecao()
 {
-    std::cout<<"Deseja ver alguma das linhas de produtos?"<<std::endl;
+    std::cout<<"Deseja rever alguma das linhas de produtos?"<<std::endl;
     std::cout<<"Se sim digite 1, se não 0"<<std::endl;
 }
 

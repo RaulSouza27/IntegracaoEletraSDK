@@ -5,7 +5,7 @@ PROJECT(
     LANGUAGES CXX
 )
 add_executable(
-    ${PROJECT_NAME}SRCS
+    ${PROJECT_NAME}
 
     src/Console.cpp
     src/controle.cpp
@@ -13,10 +13,11 @@ add_executable(
     src/medidores_de_energia.cpp
     src/menu.cpp
     src/religadores.cpp
+    src/utilidades.cpp
 )
 
 target_include_directories(
-    ${PROJECT_NAME}SRCS
+    ${PROJECT_NAME}
 
     PUBLIC
         ./include
@@ -24,7 +25,7 @@ target_include_directories(
 )
 
 target_compile_features(
-    ${PROJECT_NAME}SRCS 
+    ${PROJECT_NAME} 
     
     PUBLIC
         cxx_std_20

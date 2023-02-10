@@ -3,60 +3,69 @@
 #include "medidores_de_energia.h"
 #include "medidores_de_agua.h"
 #include "religadores.h"
-#include<iostream>
+#include <iostream>
 
 int main()
-{
-    MedidoresDeEnergia my_medidores_de_energia;
-    MedidoresDeEnergia my_medidores_zeus;
-    MedidoresDeEnergia my_medidores_cronos;
-    MedidoresDeEnergia my_medidores_ares;
-    MedidoresDeEnergia my_medidores_apolo;
-    MedidoresDeAgua my_medidores_de_agua;
-    MedidoresDeAgua my_medidor_zlink;
+{   
     Religadores my_religadores;
     Menu my_intro;
-    Controle my_desc;
-    Controle my_prod;
-    Controle my_select;
-    int select=0;
-    int desc;
+    Controle my_controle;
+    int select;
     int prod;
     my_intro.display_introducao();
-    std::cin>>select;
-    while(select!=5)
+    my_controle.selection();
+    //select=my_controle.get_select();
+    /*if(select==1)
+    {
+        my_controle.control_code_energy(); 
+    }
+    if (select==2)
+    {
+        my_controle.control_code_water();
+    }
+    if(select==3)
+    {
+        my_controle.control_code_religador();
+    }
+    if(select==4)
+    {
+        my_controle.all_products();
+    }*/
+
+
+    /*while(select!=5)
     {
         system("cls");
         if(select==1)
         {
             my_medidores_de_energia.display_medidores_de_energia();
             my_intro.display_selecao();
-            std::cin>>desc;
-            if(desc==1)
+            select=my_controle.get_select();
+            if(select==1)
             {
                 my_intro.display_energy_meter();
-                std::cin>>prod;
-                while(prod!=5)
+                select=my_controle.get_select();
+                while(select!=5)
                 {
                     system("cls");
-                    if(prod==1)
+                    if(select==1)
                     {
                         my_medidores_zeus.display_linha_zeus();
                     }
-                    if(prod==2)
+                    if(select==2)
                     {
                         my_medidores_cronos.display_linha_cronos();
                     }
-                    if(prod==3)
+                    if(select==3)
                     {
                         my_medidores_ares.display_linha_ares();
                     }
-                    if(prod==4)
+                    if(select==4)
                     {
                         my_medidores_apolo.display_linha_apolo();
                     }
                     my_intro.display_energy_meter();
-                    std::cin>>prod;
+                    select=my_controle.get_select();
                 }
             }
         }
@@ -64,8 +73,8 @@ int main()
         {
             my_medidores_de_agua.display_medidores_de_agua();
             my_intro.display_water_meter();
-            std::cin>>desc;
-            if(desc==1)
+            select=my_controle.get_select();
+            if(select==1)
             {
                 my_medidor_zlink.display_linha_zlink();
             }
@@ -84,7 +93,7 @@ int main()
             my_religadores.display_religadores();
         }
         my_intro.display_introducao();
-        std::cin>>select;
-    }
+        select=my_controle.get_select();
+    }*/
     return 0;
 }

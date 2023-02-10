@@ -1,16 +1,12 @@
 #pragma once
-#include <iostream>
 
 class Controle
 {
     public:
-        void control_code();
-        void get_Set();
-        void get_prod();
-        void get_desc();
-        void displaymessage(){}
-    private:
-        int select;
-        int prod;
-        int desc;
+        void all_products();
+        void control_code_energy();
+        void control_code_water();
+        void control_code_religador();
+        void selection();
+        auto get_select()->int;
 };
