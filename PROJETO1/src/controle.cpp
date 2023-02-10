@@ -28,70 +28,34 @@ int Controle::get_select()
 }
 
 void Controle::control_code_energy()
-{
-    int select;
-    while(1)
-    {
-        //system("cls");
-        select=get_select();
-        if(select==1)
-        {
-            my_medidores_de_energia.display_medidores_de_energia();
-            my_display_energy.display_energy_meter();
-            select=get_select();
-            if (select==1)
-            {
-                zeus_line.display_linha_zeus();
-            }
-            if (select==2)
-            {
-                cronos_line.display_linha_cronos();
-            }
-            if (select==3)
-            {
-                ares_line.display_linha_ares();
-            }
-            if (select==4)
-            {
-                apolo_line.display_linha_apolo();
-            }
-            if (select==5)
-            {
-                break;
-            }
-            my_display_return.display_selecao();
-            select=get_select();
-            /*if(select==1)
-            {
-                my_medidores_de_energia.display_medidores_de_energia();
-                my_display_energy.display_energy_meter();
-                select=get_select(); 
-            }
-            if (select==0)
-            {
-                break;
-            }
-            control_code_energy();*/
-        }
-        if(select==5)
-        {
-            break;
-        }
-    }
+{   
+    system("color 06");
+    system("cls");
+    my_display_energy.display_energy_meter();
+    zeus_line.display_linha_zeus();
+    apolo_line.display_linha_apolo();
+    ares_line.display_linha_ares();
+    cronos_line.display_linha_cronos();
 }
 
 void Controle::control_code_water()
 {
+    system("color 01");
+    system("cls");
     my_hidro.display_medidores_de_agua();
     my_zlink.display_linha_zlink();
 }
 void Controle::control_code_religador()
 {
+    system("color 03");
+    system("cls");
     my_display_religadores.display_religadores();
 }
 
 void Controle::all_products()
 {
+    system("color 07");
+    system("cls");
     my_display_religadores.display_religadores();
     my_zlink.display_linha_zlink();
     zeus_line.display_linha_zeus();
@@ -124,16 +88,13 @@ void Controle::selection()
         {
             all_products();
         }
-        if (select==5)
+        if(select==5)
         {
             break;
         }
+
         my_display_selecao.display_selecao();
-        select=get_select();
-        if (select==0)
-        {
-            break;
-        }        
+        select=get_select();        
     }   
 }
 
