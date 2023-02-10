@@ -29,7 +29,7 @@ int Controle::get_select()
 
 void Controle::control_code_energy()
 {   
-    system("color 06");
+    system("color 06"); 
     system("cls");
     my_display_energy.display_energy_meter();
     zeus_line.display_linha_zeus();
@@ -37,7 +37,6 @@ void Controle::control_code_energy()
     ares_line.display_linha_ares();
     cronos_line.display_linha_cronos();
 }
-
 void Controle::control_code_water()
 {
     system("color 01");

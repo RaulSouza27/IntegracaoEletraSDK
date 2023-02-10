@@ -4,7 +4,7 @@
 #include "medidores_de_agua.h"
 #include "religadores.h"
 #include <iostream>
-
+int select;
 int main()
 {   
     Religadores my_religadores;
