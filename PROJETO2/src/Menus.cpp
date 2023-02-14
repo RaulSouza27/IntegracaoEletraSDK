@@ -25,6 +25,7 @@ void Menus::menu_seperador()
 
 auto Menus::get_seletor(int n) -> Seletor
 {
+    //menu_choice();
     switch (n) 
     {
     case 1:
@@ -41,7 +42,7 @@ auto Menus::get_seletor(int n) -> Seletor
 
 void Menus::menu_choice()
 {
-    int n1;
-    std::cin>>n1;
-    Seletor n=get_seletor(n1);
+    int nn;
+    std::cin>>nn;
+    Seletor n=get_seletor(nn);
 }

@@ -20,5 +20,4 @@ public:
     auto get_lista_de_medidores() -> std::vector<MedidorDeEnergia>&;
 private:
     std::vector<MedidorDeEnergia> lista_de_medidores;
-    Menus my_menu;
 };

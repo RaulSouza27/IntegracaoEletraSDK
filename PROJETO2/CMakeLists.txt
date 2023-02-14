@@ -24,6 +24,7 @@ add_library(
     src/medidor_de_energia/Cronos.cpp
     src/medidor_de_energia/medidor_de_energia.cpp
     src/EletraEnergySolutions.cpp
+    src/Application.cpp
     src/Menus.cpp
 )
 

@@ -1,14 +1,13 @@
 #include "medidor_de_energia/medidor_de_energia.h"
-#include <iostream>
 
 MedidorDeEnergia::MedidorDeEnergia(std::string line, std::string model)
     : line(line), model(model)
 {
 }
 
-void MedidorDeEnergia::mostrar_informacoes_do_medidor() const 
+std::string MedidorDeEnergia::mostrar_informacoes_do_medidor() const 
 {
-    std::cout << line + " " + model << std::endl;
+    return line + " " + model;
 }
 
 auto MedidorDeEnergia::get_line() const -> std::string
