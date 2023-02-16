@@ -25,7 +25,6 @@ void Menus::menu_seperador()
 
 auto Menus::get_seletor(int n) -> Seletor
 {
-    //menu_choice();
     switch (n) 
     {
     case 1:
