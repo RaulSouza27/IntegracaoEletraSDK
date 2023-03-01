@@ -4,7 +4,7 @@
 #include "Cronos.h"
 #include "Zeus.h"
 #include "medidor_de_energia.h"
-#include "menus.h"
+#include "menu.h"
 #include <string>
 #include <iostream>
 
@@ -42,50 +42,16 @@ void EletraEnergySolutions::listar_medidores_de_energia()
     }
 }
 
-void EletraEnergySolutions::lista_de_medidores_apolo()
+void EletraEnergySolutions::listar_medidores_by_line(const MeterLine &line)
 {
     for (const auto &medidor : lista_de_medidores_de_energia)
     {
-        if (medidor.meter_line == MeterLine::APOLO)
+        if (medidor.meter_line == line)
         {
-            std::cout <<"#####  " + medidor.get_id() + "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
+            std::cout<<"#####  " + medidor.get_id() + "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
         }
     }
 }
-
-void EletraEnergySolutions::lista_de_medidores_ares()
-{
-    for (const auto &medidor : lista_de_medidores_de_energia)
-    {
-        if (medidor.meter_line == MeterLine::ARES)
-        {
-            std::cout <<"#####  " + medidor.get_id() + "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
-        }
-    }
-}
-
-void EletraEnergySolutions::lista_de_medidores_cronos()
-{
-    for (const auto &medidor : lista_de_medidores_de_energia)
-    {
-        if (medidor.meter_line == MeterLine::CRONOS)
-        {
-            std::cout << "#####  " + medidor.get_id() + "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
-        }
-    }
-}
-
-void EletraEnergySolutions::lista_de_medidores_zeus()
-{
-    for (const auto &medidor : lista_de_medidores_de_energia)
-    {
-        if (medidor.meter_line == MeterLine::ZEUS)
-        {
-            std::cout << "#####  " + medidor.get_id() + "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
-        }
-    }
-}
-
 
 auto EletraEnergySolutions::get_lista_de_medidores() -> std::vector<MedidorDeEnergia> &
 {
@@ -111,7 +77,9 @@ void EletraEnergySolutions::adicionar_medidor(MeterLine line, std::string model,
     }
 }
 
-void EletraEnergySolutions::clear_list()
+std::string EletraEnergySolutions::create_id()
 {
-    lista_de_medidores_de_energia.clear();
+    int iden = get_lista_de_medidores().size()+1;
+    std::string identifier = std::to_string(iden);
+    return identifier;
 }

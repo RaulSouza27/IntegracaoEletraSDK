@@ -15,7 +15,7 @@ add_executable(
     src/EletraEnergySolution.cpp
     src/main.cpp
     src/medidor_de_energia.cpp
-    src/menus.cpp
+    src/menu.cpp
     src/zeus.cpp
 )
 

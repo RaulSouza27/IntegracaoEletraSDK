@@ -7,5 +7,4 @@ int main()
 
     app.run_application();
     return 0;
-
 }

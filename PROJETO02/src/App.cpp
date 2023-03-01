@@ -12,8 +12,6 @@ void Application::add_meter()
 {
     my_menu.menu_seperador();
     my_menu.menu_de_introducao();
-    std::string model_local;
-    std::string id_local;
     std::string model;
     std::string id;
     bool run_app = true;
@@ -22,8 +20,7 @@ void Application::add_meter()
     {   
         my_menu.menu_seperador();
         my_menu.menu_seletor();
-        int decision = 0;
-        my_menu.get_action_add_meter(decision);
+        int decision = my_menu.get_int_by_terminal();
 
         Seletor seletor = my_menu.get_seletor(decision);
 
@@ -31,30 +28,26 @@ void Application::add_meter()
         {
             case Seletor::ZEUS:
                 my_menu.menu_insercao();
-                std::cin>>model;
-                my_menu.menu_de_id();
-                std::cin>>id;
+                model = my_menu.get_string_by_terminal();
+                id = ees.create_id();
                 ees.adicionar_medidor(MeterLine::ZEUS, model, id);
                 break;
             case Seletor::ARES:    
                 my_menu.menu_insercao();
-                std::cin>>model;
-                my_menu.menu_de_id();
-                std::cin>>id;
+                model = my_menu.get_string_by_terminal();
+                id = ees.create_id();
                 ees.adicionar_medidor(MeterLine::CRONOS, model, id);
                 break;
             case Seletor::CRONOS:
                 my_menu.menu_insercao();
-                std::cin>>model;
-                my_menu.menu_de_id();
-                std::cin>>id;
+                model = my_menu.get_string_by_terminal();
+                id = ees.create_id();
                 ees.adicionar_medidor(MeterLine::ARES, model, id);
                 break;
             case Seletor::APOLO:
                 my_menu.menu_insercao();
-                std::cin>>model;
-                my_menu.menu_de_id();
-                std::cin>>id;
+                model = my_menu.get_string_by_terminal();
+                id = ees.create_id();
                 ees.adicionar_medidor(MeterLine::APOLO, model, id);
                 break;
             case Seletor::SAIR:
@@ -73,11 +66,10 @@ void Application::run_application()
     my_menu.menu_start();
     my_menu.menu_seperador();
     bool app_run = true;
-    int action;
     while(app_run)
     {   
         my_menu.menu_start_choice();
-        std::cin>>action;
+        int action = my_menu.get_int_by_terminal();
         Action act = my_menu.get_action(action);
 
         switch (act)
@@ -85,6 +77,7 @@ void Application::run_application()
         case Action::LINES:
             my_menu.menu_seperador();
             my_menu.menu_lines();
+            my_menu.menu_decision();
             break;
         case Action::ENERGY_METERS:
             system("cls");
@@ -94,48 +87,50 @@ void Application::run_application()
             my_menu.menu_indicador();
             ees.listar_medidores_de_energia();
             my_menu.menu_seperador();
+            my_menu.menu_decision();
             break;
         case Action::ARES_METERS:
             system("cls");
             my_menu.menu_seperador();
-            my_menu.menu_ares_info();
+            my_menu.menu_meter_info("ARES");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.lista_de_medidores_ares();
-            my_menu.menu_seperador();
+            ees.listar_medidores_by_line(MeterLine::ARES);
+            my_menu.menu_decision();
             break;
         case Action::APOLO_METERS:
             system("cls");
             my_menu.menu_seperador();
-            my_menu.menu_apolo_info();
+            my_menu.menu_meter_info("APOLO");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.lista_de_medidores_apolo();
-            my_menu.menu_seperador();
+            ees.listar_medidores_by_line(MeterLine::APOLO);
+            my_menu.menu_decision();
             break;
         case Action::CRONOS_METERS:
             system("cls");
             my_menu.menu_seperador();
-            my_menu.menu_cronos_info();
+            my_menu.menu_meter_info("CRONOS");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.lista_de_medidores_cronos();
-            my_menu.menu_seperador();
+            ees.listar_medidores_by_line(MeterLine::CRONOS);
+            my_menu.menu_decision();
             break;
         case Action::ZEUS_METERS:
             system("cls");
             my_menu.menu_seperador();
-            my_menu.menu_zeus_info();
+            my_menu.menu_meter_info("ZEUS");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.lista_de_medidores_zeus();
-            my_menu.menu_seperador();
+            ees.listar_medidores_by_line(MeterLine::ZEUS);
+            my_menu.menu_decision();
             break;
         case Action::ADD_METER:
             system("cls");
             my_menu.menu_seperador();
             add_meter();
             my_menu.menu_seperador();
+            my_menu.menu_decision();
             break;
         case Action::DELETE_METER:
             system("cls");
@@ -144,6 +139,7 @@ void Application::run_application()
             ees.listar_medidores_de_energia();
             my_menu.menu_seperador();
             delete_meter();
+            my_menu.menu_decision();
             break;
         case Action::EXIT:
             app_run = false;
@@ -152,9 +148,6 @@ void Application::run_application()
             my_menu.menu_warning();
             break;
         }
-        my_menu.menu_seperador();
-        my_menu.menu_decision();
-        my_menu.menu_seperador();
     }
 }
 
@@ -162,15 +155,32 @@ void Application::delete_meter()
 {
     std::string descision = "sim";
     my_menu.menu_delete();
+    int num;
     while(descision!="fim")
     {
         my_menu.menu_info_delete();
-        std::cin>>descision;
+        descision = my_menu.get_string_by_terminal();
         for (auto it = ees.get_lista_de_medidores().begin(); it!=ees.get_lista_de_medidores().end(); ++it)
         {
             if(it -> id == descision)
             {
                 it=ees.get_lista_de_medidores().erase(it);
+                break;
+            }
+            try
+            {
+                int convert = stoi(descision);
+                int convert2 = ees.get_lista_de_medidores().size();
+                if (convert>convert2)
+                {
+                    my_menu.menu_warning();
+                    break;
+                }
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+                break;
             }
         }
     }

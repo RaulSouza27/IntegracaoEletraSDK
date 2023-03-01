@@ -11,6 +11,4 @@ public:
 
 private:
     static const std::string ARES_LINE;
-    static const std::string ID;
-    std::list<std::string> ares_padrao = {"APOLO 6031"};
 };

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Menus.h"
+#include "menu.h"
 #include "EletraEnergySolutions.h"
 #include <fstream>
 
@@ -12,6 +12,6 @@ public:
     void delete_meter();
     void run_application();
 private:
-    Menus my_menu;
+    Menu my_menu;
     EletraEnergySolutions ees;
 };
