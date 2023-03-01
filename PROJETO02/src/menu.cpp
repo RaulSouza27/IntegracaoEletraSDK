@@ -120,7 +120,7 @@ void Menu::menu_warning()
 void Menu::menu_delete()
 {
     std::cout<<"Deseja deletar algum medidor da lista ? "<<std::endl;
-    std::cout<<"Caso queira voltar ao menu, digite fim:"<<std::endl;
+    std::cout<<"Caso queira voltar ao menu, digite 0:"<<std::endl;
 }
 
 void Menu::menu_info_delete()

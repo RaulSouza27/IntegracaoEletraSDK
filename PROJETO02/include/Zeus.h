@@ -5,7 +5,7 @@
 class Zeus : public MedidorDeEnergia
 {
 public:
-    Zeus(std::string model, std::string id);
+    Zeus(std::string model, int id);
 
 private:
     static const std::string ZEUS_LINE;

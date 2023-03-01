@@ -11,12 +11,10 @@ class EletraEnergySolutions
 public:
     EletraEnergySolutions();
     auto get_lista_de_medidores() -> std::vector<MedidorDeEnergia> &;
-    void adicionar_medidor(MeterLine line, std::string model, std::string id);
+    void adicionar_medidor(MeterLine line, std::string model, int id);
     void listar_medidores_de_energia();
     void listar_medidores_by_line(const MeterLine &line);
-    std::string create_id();
-
-
+    auto create_id() -> int;
 
 private:
     std::vector<MedidorDeEnergia> lista_de_medidores_de_energia;

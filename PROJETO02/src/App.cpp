@@ -13,7 +13,7 @@ void Application::add_meter()
     my_menu.menu_seperador();
     my_menu.menu_de_introducao();
     std::string model;
-    std::string id;
+    int id;
     bool run_app = true;
 
     while(run_app)
@@ -153,23 +153,23 @@ void Application::run_application()
 
 void Application::delete_meter()
 {
-    std::string descision = "sim";
+    int descision;
     my_menu.menu_delete();
     int num;
-    while(descision!="fim")
+    do
     {
         my_menu.menu_info_delete();
-        descision = my_menu.get_string_by_terminal();
+        descision = my_menu.get_int_by_terminal();
         for (auto it = ees.get_lista_de_medidores().begin(); it!=ees.get_lista_de_medidores().end(); ++it)
         {
-            if(it -> id == descision)
+            if(it -> get_id() == descision)
             {
                 it=ees.get_lista_de_medidores().erase(it);
                 break;
             }
             try
             {
-                int convert = stoi(descision);
+                int convert = descision;
                 int convert2 = ees.get_lista_de_medidores().size();
                 if (convert>convert2)
                 {
@@ -184,4 +184,5 @@ void Application::delete_meter()
             }
         }
     }
+    while(descision!=0);
 }
