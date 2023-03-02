@@ -6,29 +6,45 @@ PROJECT(
     LANGUAGES CXX
 )
 
-add_executable(
-    ${PROJECT_NAME}
+add_subdirectory(tests)
+
+add_library(
+    ${PROJECT_NAME}lib
+
     src/Apolo.cpp
-    src/App.cpp
+    src/Application.cpp
     src/Ares.cpp
     src/Cronos.cpp
     src/EletraEnergySolution.cpp
+    src/MedidorDeEnergia.cpp
+    src/Menu.cpp
+    src/Zeus.cpp
+    src/fabrica_de_medidor.cpp
+)
+
+add_executable(
+    ${PROJECT_NAME}
+
     src/main.cpp
-    src/medidor_de_energia.cpp
-    src/menu.cpp
-    src/zeus.cpp
 )
 
 target_include_directories(
-    ${PROJECT_NAME}
+    ${PROJECT_NAME}lib
 
     PUBLIC
-    ./include
+        ./include
 )
 
 target_compile_features(
-    ${PROJECT_NAME}
+    ${PROJECT_NAME}lib
 
     PUBLIC
-    cxx_std_20
+        cxx_std_20
+)
+
+target_link_libraries(
+    ${PROJECT_NAME}
+
+    PRIVATE
+        ${PROJECT_NAME}lib
 )

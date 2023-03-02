@@ -1,31 +1,7 @@
 #pragma once
 
-#include "medidor_de_energia.h"
+#include "Utils.h"
 #include <string>
-
-enum class Seletor
-{
-    ZEUS,
-    ARES,
-    CRONOS,
-    APOLO,
-    SAIR,
-    UNKNOWN
-};
-
-enum class Action
-{
-    LINES,
-    ENERGY_METERS,
-    ARES_METERS,
-    APOLO_METERS,
-    CRONOS_METERS,
-    ZEUS_METERS,
-    ADD_METER,
-    DELETE_METER,
-    EXIT,
-    UNKNOWN
-};
 
 class Menu
 {

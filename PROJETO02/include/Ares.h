@@ -1,8 +1,6 @@
 #pragma once
 
-#include "medidor_de_energia.h"
-#include <list>
-#include <string>
+#include "MedidorDeEnergia.h"
 
 class Ares : public MedidorDeEnergia
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include "medidor_de_energia.h"
+#include "MedidorDeEnergia.h"
 
 class Cronos : public MedidorDeEnergia
 {

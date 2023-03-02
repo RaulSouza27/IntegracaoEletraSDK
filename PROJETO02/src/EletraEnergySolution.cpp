@@ -3,9 +3,6 @@
 #include "Apolo.h"
 #include "Cronos.h"
 #include "Zeus.h"
-#include "medidor_de_energia.h"
-#include "menu.h"
-#include <string>
 #include <iostream>
 
 EletraEnergySolutions::EletraEnergySolutions()
@@ -30,6 +27,7 @@ EletraEnergySolutions::EletraEnergySolutions()
             Ares("8023",15),
             Ares("8023 15",16),
             Ares("8023 200",17),
+            Ares("6060", 18)
         }
     };
 }
@@ -38,7 +36,7 @@ void EletraEnergySolutions::listar_medidores_de_energia()
 {
     for (const auto &medidor : lista_de_medidores_de_energia)
     {
-        std::cout<<"#####  " << medidor.get_id() << "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
+        std::cout<<"*****  " << medidor.get_id() << "  *********  " + medidor.mostrar_informacao_completa() + "  **********\n";
     }
 }
 
@@ -48,7 +46,7 @@ void EletraEnergySolutions::listar_medidores_by_line(const MeterLine &line)
     {
         if (medidor.get_meter_line() == line)
         {
-            std::cout<<"#####  " << medidor.get_id() << "  #########  " + medidor.mostrar_informacao_completa() + "  ##########\n";
+            std::cout<<"*****  " << medidor.get_id() << "  *********  " + medidor.mostrar_informacao_completa() + "  **********\n";
         }
     }
 }
@@ -58,23 +56,9 @@ auto EletraEnergySolutions::get_lista_de_medidores() -> std::vector<MedidorDeEne
     return lista_de_medidores_de_energia;
 }
 
-void EletraEnergySolutions::adicionar_medidor(MeterLine line, std::string model, int id)
+void EletraEnergySolutions::adicionar_medidor(MedidorDeEnergia medidor)
 {
-    switch (line)
-    {
-    case MeterLine::ARES:
-        lista_de_medidores_de_energia.push_back(Ares(model, id));
-        return;
-    case MeterLine::APOLO:
-        lista_de_medidores_de_energia.push_back(Apolo(model, id));
-        return;
-    case MeterLine::CRONOS:
-        lista_de_medidores_de_energia.push_back(Cronos(model, id));
-        return;
-    case MeterLine::ZEUS:
-        lista_de_medidores_de_energia.push_back(Zeus(model, id));
-        return;
-    }
+    // lista_de_medidores_de_energia.push_back(medidor);
 }
 
 auto EletraEnergySolutions::create_id() -> int

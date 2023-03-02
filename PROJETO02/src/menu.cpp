@@ -1,8 +1,5 @@
 #include "Menu.h"
-#include "EletraEnergySolutions.h"
-#include "medidor.h"
 #include <iostream>
-#include <string>
 
 void Menu::menu_seletor()
 {
@@ -21,7 +18,7 @@ void Menu::menu_de_introducao()
 }
 void Menu::menu_seperador()
 {
-    std::cout << "##############################################################" << std::endl;
+    std::cout << "**************************************************************" << std::endl;
 }
 
 auto Menu::get_seletor(int n) -> Seletor
@@ -63,6 +60,8 @@ auto Menu::get_action(int n) -> Action
     case 8:
         return Action::DELETE_METER;
     case 9:
+        return Action::CLEARSCREEN;
+    case 10:
         return Action::EXIT;
     }
     return Action::UNKNOWN;
@@ -81,7 +80,8 @@ void Menu::menu_start()
     std::cout<<"6 - Conheça os Medidores de energia da linha ZEUS"<<std::endl;
     std::cout<<"7 - Adicione um ou mais Medidores de energia na linha "<<std::endl;
     std::cout<<"8 - Exclua um ou mais Medidores de energia na linha "<<std::endl;
-    std::cout<<"9 - Sair do console"<<std::endl;
+    std::cout<<"9 - Limpar a tela do console"<<std::endl;
+    std::cout<<"10 - Sair do console"<<std::endl;
 }
 
 void Menu::menu_decision()
@@ -94,12 +94,12 @@ void Menu::menu_decision()
     std::cout<<"6 - Conheça os Medidores de energia da linha ZEUS"<<std::endl;
     std::cout<<"7 - Adicione um ou mais Medidores de energia na linha "<<std::endl;
     std::cout<<"8 - Exclua um ou mais Medidores de energia na linha "<<std::endl;
-    std::cout<<"9 - Sair do console"<<std::endl;
+    std::cout<<"9 - Limpar a tela do console"<<std::endl;
+    std::cout<<"10 - Sair do console"<<std::endl;
 }
 
 void Menu::menu_lines()
 {
-    system("cls");
     std::cout<<"Os medidores de energia são divididos em 4 linhas"<<std::endl;
     std::cout<<"Linha ZEUS - de medidores inteligentes"<<std::endl;
     std::cout<<"Linha ARES - de medidores comerciais e industriais"<<std::endl;
@@ -109,7 +109,7 @@ void Menu::menu_lines()
 
 void Menu::menu_indicador()
 {
-    std::cout << "#####  ID  #########  LINE  #########  MODELO  ##############" << std::endl;
+    std::cout << "*****  ID  *********  LINE  *********  MODELO  **************" << std::endl;
 }
 
 void Menu::menu_warning()
@@ -145,13 +145,22 @@ void Menu::menu_meters_info()
 
 auto Menu::get_int_by_terminal() -> int
 {
-    int n;
-    std::cin>>n;
+    int z = 0;
+    std::string word;
+    std::cin>>word;
     if(std::cin.fail())
     {
         std::cin.clear();
     }
-    return n;
+    try
+    {
+        z = stoi(word);
+    }
+    catch(const std::exception& e)
+    {
+        menu_warning();
+    }
+    return z;
 }
 
 std::string Menu::get_string_by_terminal()
