@@ -20,4 +20,3 @@ TEST_CASE("Teste construtor apolo 8021")
     REQUIRE(medidor.get_line() == "APOLO");
     REQUIRE(medidor.get_meter_line() == MeterLine::APOLO);
 }
-

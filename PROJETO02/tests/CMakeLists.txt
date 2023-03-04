@@ -4,6 +4,9 @@ add_executable(
     main.cpp
     test_Apolo.cpp
     test_EletraEnergySolutions.cpp
+    test_Cronos.cpp
+    test_Ares.cpp
+    test_Zeus.cpp
 )
 
 target_include_directories(

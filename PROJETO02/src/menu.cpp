@@ -78,8 +78,8 @@ void Menu::menu_start()
     std::cout<<"4 - Conheça os Medidores de energia da linha APOLO"<<std::endl;
     std::cout<<"5 - Conheça os Medidores de energia da linha CRONOS"<<std::endl;
     std::cout<<"6 - Conheça os Medidores de energia da linha ZEUS"<<std::endl;
-    std::cout<<"7 - Adicione um ou mais Medidores de energia na linha "<<std::endl;
-    std::cout<<"8 - Exclua um ou mais Medidores de energia na linha "<<std::endl;
+    std::cout<<"7 - Adicione um ou mais Medidores de energia na linha"<<std::endl;
+    std::cout<<"8 - Exclua um ou mais Medidores de energia na linha"<<std::endl;
     std::cout<<"9 - Limpar a tela do console"<<std::endl;
     std::cout<<"10 - Sair do console"<<std::endl;
 }

@@ -58,7 +58,7 @@ auto EletraEnergySolutions::get_lista_de_medidores() -> std::vector<MedidorDeEne
 
 void EletraEnergySolutions::adicionar_medidor(MedidorDeEnergia medidor)
 {
-    // lista_de_medidores_de_energia.push_back(medidor);
+    lista_de_medidores_de_energia.push_back(medidor);
 }
 
 auto EletraEnergySolutions::create_id() -> int
