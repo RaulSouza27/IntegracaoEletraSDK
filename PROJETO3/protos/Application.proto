@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package projeto03;
+
+enum MeterLineProto
+{
+    APOLO = 0;
+    ARES = 1;
+    CRONOS = 2;
+    ZEUS = 3;
+}
+
+service ApplicationProto
+{
+    rpc GetLines() returns (InfoReply){}
+    rpc GetAllMeters() returns (InfoReply){}
+    rpc GetAresMeters(InfoRequest) returns (InfoReply){}
+    rpc GetApoloMeters(InfoRequest) returns (InfoReply){}
+    rpc GetCronosMeters(InfoRequest) returns (InfoReply){}
+    rpc GetZeusMeters(InfoRequest) returns (InfoReply){}
+    rpc AddMeters(InfoRequest) returns (InfoReply){}
+    rpc DeleteMeters(InfoRequest) returns (InfoReply){}
+}
+
+message InfoRequest
+{
+    MeterLineProto meter_line = 1;
+}
+
+message InfoReply
+{
+    
+}

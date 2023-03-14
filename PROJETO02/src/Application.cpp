@@ -22,13 +22,13 @@ void Application::add_meter()
             my_menu.menu_seletor();
             int decision = my_menu.get_int_by_terminal();
 
-            Seletor seletor = my_menu.get_seletor(decision);
+            auto meters = my_menu.convert_to_meter_line(decision); 
             
             my_menu.menu_insercao();
             model = my_menu.get_string_by_terminal();
             id = ees.create_id();
 
-            auto meter = create_meter(seletor, model, id);
+            auto meter = create_meter(meters, model, id);
 
             ees.adicionar_medidor(*meter);
         }
@@ -62,7 +62,7 @@ void Application::run_application()
             my_menu.menu_meters_info();
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.listar_medidores_de_energia();
+            my_menu.print_list_of_meters(ees.get_lista_de_medidores());
             my_menu.menu_seperador();
             my_menu.menu_decision();
             break;
@@ -71,7 +71,7 @@ void Application::run_application()
             my_menu.menu_meter_info("ARES");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.listar_medidores_by_line(MeterLine::ARES);
+            my_menu.print_list_of_meters(ees.get_lista_de_medidores_por_linha(MeterLine::ARES));
             my_menu.menu_decision();
             break;
         case Action::APOLO_METERS:
@@ -79,7 +79,7 @@ void Application::run_application()
             my_menu.menu_meter_info("APOLO");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.listar_medidores_by_line(MeterLine::APOLO);
+            my_menu.print_list_of_meters(ees.get_lista_de_medidores_por_linha(MeterLine::APOLO));
             my_menu.menu_decision();
             break;
         case Action::CRONOS_METERS:
@@ -87,7 +87,7 @@ void Application::run_application()
             my_menu.menu_meter_info("CRONOS");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.listar_medidores_by_line(MeterLine::CRONOS);
+            my_menu.print_list_of_meters(ees.get_lista_de_medidores_por_linha(MeterLine::CRONOS));
             my_menu.menu_decision();
             break;
         case Action::ZEUS_METERS:
@@ -95,7 +95,7 @@ void Application::run_application()
             my_menu.menu_meter_info("ZEUS");
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.listar_medidores_by_line(MeterLine::ZEUS);
+            my_menu.print_list_of_meters(ees.get_lista_de_medidores_por_linha(MeterLine::ZEUS));
             my_menu.menu_decision();
             break;
         case Action::ADD_METER:
@@ -107,7 +107,7 @@ void Application::run_application()
         case Action::DELETE_METER:
             my_menu.menu_seperador();
             my_menu.menu_indicador();
-            ees.listar_medidores_de_energia();
+            my_menu.print_list_of_meters(ees.get_lista_de_medidores());
             my_menu.menu_seperador();
             delete_meter();
             my_menu.menu_decision();

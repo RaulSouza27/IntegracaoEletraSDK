@@ -1,5 +1,5 @@
 #include "catch.hpp"
-#include "Ares.h"
+#include "AresMeter.h"
 
 TEST_CASE("Teste construtor ARES")
 {

@@ -1,5 +1,6 @@
 #include "Menu.h"
 #include <iostream>
+#include "MedidorDeEnergia.h"
 
 void Menu::menu_seletor()
 {
@@ -19,6 +20,22 @@ void Menu::menu_de_introducao()
 void Menu::menu_seperador()
 {
     std::cout << "**************************************************************" << std::endl;
+}
+
+auto Menu::convert_to_meter_line(int n) -> MeterLine
+{
+    switch (n)
+    {
+    case 1:
+        return MeterLine::APOLO;
+    case 2:
+        return MeterLine::ARES;
+    case 3:
+        return MeterLine::CRONOS;
+    case 4:
+        return MeterLine::ZEUS;    
+    }
+    return MeterLine::UNKNOWN;
 }
 
 auto Menu::get_seletor(int n) -> Seletor
@@ -173,3 +190,17 @@ std::string Menu::get_string_by_terminal()
     }
     return word;
 }
+
+void Menu::print_meter_information(std::string complete_information, int id)
+{
+    std::cout<<"*****  " << id << "  *********  " + complete_information + "  **********\n";
+}
+
+void Menu::print_list_of_meters(const std::vector<MedidorDeEnergia> &lista_de_medidores_de_energia)
+{
+    for(const auto &medidor : lista_de_medidores_de_energia)
+    {
+        print_meter_information(medidor.mostrar_informacao_completa(), medidor.get_id());
+    }
+}
+

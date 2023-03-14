@@ -1,7 +1,7 @@
 #include "catch.hpp"
 #include "EletraEnergySolutions.h"
 #include "Zeus.h"
-#include "Ares.h"
+#include "AresMeter.h"
 #include "Cronos.h"
 #include "Apolo.h"
 
