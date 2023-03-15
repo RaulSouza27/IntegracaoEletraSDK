@@ -9,7 +9,6 @@ enum MeterLineProto
     ARES = 2;
     CRONOS = 3;
     ZEUS = 4;
-
 }
 
 message MedidorDeEnergiaProto
@@ -23,11 +22,8 @@ service ApplicationProto
 {
     rpc GetAvailableLines(EmptyRequest) returns (GetLinesReply);
     rpc GetLinesOnMeterList(EmptyRequest) returns (GetLinesReply);
+    rpc GetMetersByLine(GetMetersByLineRequest) returns (GetMetersReply);
     rpc GetAllMeters(EmptyRequest) returns (GetMetersReply);
-    rpc GetAresMeters(EmptyRequest) returns (GetMetersReply);
-    rpc GetApoloMeters(EmptyRequest) returns (GetMetersReply);
-    rpc GetCronosMeters(EmptyRequest) returns (GetMetersReply);
-    rpc GetZeusMeters(EmptyRequest) returns (GetMetersReply);
     rpc AddMeters(AddMetersRequest) returns (GetMetersReply);
     rpc DeleteMeters(DeleteMetersRequest) returns (GetMetersReply);
 }
@@ -48,12 +44,17 @@ message GetMetersReply
 
 message AddMetersRequest
 {
-    MedidorDeEnergiaProto meter = 1;
+    repeated MedidorDeEnergiaProto meter = 1;
 }
 
 message DeleteMetersRequest
 {
-    int32 id = 1;
+    repeated int32 id = 1;
+}
+
+message GetMetersByLineRequest
+{
+    MeterLineProto meter_line = 1;
 }
 
 

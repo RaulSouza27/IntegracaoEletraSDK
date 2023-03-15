@@ -22,6 +22,7 @@ add_library(
     src/Zeus.cpp
     src/fabrica_de_medidor.cpp
     src/Services/ApplicationServices.cpp
+    src/Services/UtilsApplicationServices.cpp
 )
 
 add_executable(

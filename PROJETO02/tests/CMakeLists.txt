@@ -7,6 +7,8 @@ add_executable(
     test_Cronos.cpp
     test_Ares.cpp
     test_Zeus.cpp
+    test_UtilsApplicationServices.cpp
+    test_factory.cpp
 )
 
 target_include_directories(

@@ -14,17 +14,14 @@ namespace rsf
     public:
         grpc::Status GetAvailableLines(::grpc::ServerContext *context, const EmptyRequest *request, GetLinesReply *response) override;
         grpc::Status GetAllMeters(::grpc::ServerContext *context, const EmptyRequest *request, GetMetersReply *reply) override;
-        grpc::Status GetAresMeters(::grpc::ServerContext *context, const EmptyRequest *request, GetMetersReply *reply) override;
-        grpc::Status GetApoloMeters(::grpc::ServerContext *context, const EmptyRequest *request, GetMetersReply *reply) override;
-        grpc::Status GetCronosMeters(::grpc::ServerContext *context, const EmptyRequest *request, GetMetersReply *reply) override;
-        grpc::Status GetZeusMeters(::grpc::ServerContext *context, const EmptyRequest *request, GetMetersReply *reply) override;
         grpc::Status AddMeters(grpc::ServerContext *context, const AddMetersRequest *request, GetMetersReply *reply) override;
         grpc::Status DeleteMeters(grpc::ServerContext *context, const DeleteMetersRequest *request, GetMetersReply *reply) override;
         grpc::Status GetLinesOnMeterList(grpc::ServerContext *context, const EmptyRequest *request, GetLinesReply *response) override;
+        grpc::Status GetMetersByLine(grpc::ServerContext *context, const GetMetersByLineRequest *request, GetMetersReply *reply) override;
     private:
-        void display_list(const std::vector<MedidorDeEnergia> &lista_de_medidor, GetMetersReply *reply);
         auto convert_meter_line(const MeterLine &line)-> MeterLineProto;
-        auto covert_meter_line_proto_to_meter_line(const MeterLineProto &meter_line_proto) -> MeterLine;
+        auto convert_meter_line_proto_to_meter_line(const MeterLineProto &meter_line_proto) -> MeterLine;
+        void display_list(const std::vector<MedidorDeEnergia> &lista_de_medidor, GetMetersReply *reply);
  
         EletraEnergySolutions ees;
     };
