@@ -18,11 +18,12 @@ namespace rsf
         grpc::Status DeleteMeters(grpc::ServerContext *context, const DeleteMetersRequest *request, GetMetersReply *reply) override;
         grpc::Status GetLinesOnMeterList(grpc::ServerContext *context, const EmptyRequest *request, GetLinesReply *response) override;
         grpc::Status GetMetersByLine(grpc::ServerContext *context, const GetMetersByLineRequest *request, GetMetersReply *reply) override;
+
     private:
-        auto convert_meter_line(const MeterLine &line)-> MeterLineProto;
+        auto convert_meter_line(const MeterLine &line) -> MeterLineProto;
         auto convert_meter_line_proto_to_meter_line(const MeterLineProto &meter_line_proto) -> MeterLine;
         void display_list(const std::vector<MedidorDeEnergia> &lista_de_medidor, GetMetersReply *reply);
- 
+
         EletraEnergySolutions ees;
     };
 }

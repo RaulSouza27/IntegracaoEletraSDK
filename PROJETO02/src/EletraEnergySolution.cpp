@@ -14,23 +14,23 @@ EletraEnergySolutions::EletraEnergySolutions()
 {
     lista_de_medidores_de_energia =
         {
-            Zeus("8021",1),
-            Zeus("8031",2),
-            Zeus("8023",3),
-            Apolo("6031",4),
-            Cronos("6001-A",5),
-            Cronos("6021-A",6),
-            Cronos("6021L",7),
-            Cronos("6003",8),
-            Cronos("7023",9),
-            Cronos("7023L",10),
-            Cronos("7023 2,5",11),
-            Ares("7021",12),
-            Ares("7031",13),
-            Ares("7023",14),
-            Ares("8023",15),
-            Ares("8023 15",16),
-            Ares("8023 200",17),
+            Zeus("8021", 1),
+            Zeus("8031", 2),
+            Zeus("8023", 3),
+            Apolo("6031", 4),
+            Cronos("6001-A", 5),
+            Cronos("6021-A", 6),
+            Cronos("6021L", 7),
+            Cronos("6003", 8),
+            Cronos("7023", 9),
+            Cronos("7023L", 10),
+            Cronos("7023 2,5", 11),
+            Ares("7021", 12),
+            Ares("7031", 13),
+            Ares("7023", 14),
+            Ares("8023", 15),
+            Ares("8023 15", 16),
+            Ares("8023 200", 17),
         };
 }
 
@@ -70,7 +70,7 @@ auto EletraEnergySolutions::get_lines_on_meter_list() -> std::list<MeterLine>
 
     for (const auto &medidor : lista_de_medidores_de_energia)
     {
-        if(check_if_exist(lista_de_linhas, medidor.get_meter_line()))
+        if (check_if_exist(lista_de_linhas, medidor.get_meter_line()))
         {
             lista_de_linhas.emplace_back(medidor.get_meter_line());
         }
@@ -94,7 +94,8 @@ bool check_if_exist(const std::list<MeterLine> &lines, const MeterLine &line_com
 {
     for (const auto &line : lines)
     {
-        if (line == line_compare) return false;
+        if (line == line_compare)
+            return false;
     }
     return true;
 }

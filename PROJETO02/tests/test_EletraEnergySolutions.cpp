@@ -114,7 +114,7 @@ TEST_CASE("test get_lista_de_medidores_por_linha - ares")
 
 TEST_CASE("test get_lista_de_medidores_por_linha - apolo")
 {
-    std::vector<MedidorDeEnergia> test_list = {Apolo("6031",4)};
+    std::vector<MedidorDeEnergia> test_list = {Apolo("6031", 4)};
     EletraEnergySolutions ees;
 
     REQUIRE(ees.get_lista_de_medidores_por_linha(MeterLine::APOLO) == test_list);
@@ -122,7 +122,7 @@ TEST_CASE("test get_lista_de_medidores_por_linha - apolo")
 
 TEST_CASE("test get_lista_de_medidores_por_linha - cronos")
 {
-    std::vector<MedidorDeEnergia> test_list = {Cronos("6001-A",5),Cronos("6021-A",6),Cronos("6021L",7),Cronos("6003",8),Cronos("7023",9),Cronos("7023L",10),Cronos("7023 2,5",11)};
+    std::vector<MedidorDeEnergia> test_list = {Cronos("6001-A", 5), Cronos("6021-A", 6), Cronos("6021L", 7), Cronos("6003", 8), Cronos("7023", 9), Cronos("7023L", 10), Cronos("7023 2,5", 11)};
     EletraEnergySolutions ees;
 
     REQUIRE(ees.get_lista_de_medidores_por_linha(MeterLine::CRONOS) == test_list);
@@ -130,8 +130,8 @@ TEST_CASE("test get_lista_de_medidores_por_linha - cronos")
 
 TEST_CASE("test get_lista_de_medidores_por_linha - zeus")
 {
-    std::vector<MedidorDeEnergia> test_list = {Zeus("8021",1),Zeus("8031",2),Zeus("8023",3)};    
-    
+    std::vector<MedidorDeEnergia> test_list = {Zeus("8021", 1), Zeus("8031", 2), Zeus("8023", 3)};
+
     EletraEnergySolutions ees;
 
     REQUIRE(ees.get_lista_de_medidores_por_linha(MeterLine::ZEUS) == test_list);

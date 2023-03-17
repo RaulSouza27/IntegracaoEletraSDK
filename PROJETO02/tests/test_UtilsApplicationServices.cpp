@@ -45,7 +45,7 @@ TEST_CASE("convert_meter_line 1")
 TEST_CASE("convert_meter_line 2")
 {
     auto meter = UtilsApplicationServices::convert_meter_line(MeterLine::ARES);
-    REQUIRE(rsf::MeterLineProto::ARES == meter); 
+    REQUIRE(rsf::MeterLineProto::ARES == meter);
 }
 
 TEST_CASE("convert_meter_line 3")
@@ -55,7 +55,7 @@ TEST_CASE("convert_meter_line 3")
 }
 
 TEST_CASE("convert_meter_line 4")
-{   
+{
     auto meter = UtilsApplicationServices::convert_meter_line(MeterLine::ZEUS);
     REQUIRE(rsf::MeterLineProto::ZEUS == meter);
 }
@@ -68,10 +68,10 @@ TEST_CASE("convert_meter_line 5")
 
 TEST_CASE("Display_list 1")
 {
-    std::vector<MedidorDeEnergia> list_test = {Apolo ("8030",35)};
-    
+    std::vector<MedidorDeEnergia> list_test = {Apolo("8030", 35)};
+
     rsf::GetMetersReply reply;
-    
+
     UtilsApplicationServices::display_list(list_test, &reply);
 
     REQUIRE(reply.meters_list_size() == 1);
@@ -82,17 +82,17 @@ TEST_CASE("Display_list 1")
 
 TEST_CASE("Display_list 2")
 {
-    std::vector<MedidorDeEnergia> list_test = {Ares ("8080",36), Cronos("7070",37), Zeus("2525",38)};
-    
+    std::vector<MedidorDeEnergia> list_test = {Ares("8080", 36), Cronos("7070", 37), Zeus("2525", 38)};
+
     rsf::GetMetersReply reply;
-    
+
     UtilsApplicationServices::display_list(list_test, &reply);
 
     REQUIRE(reply.meters_list_size() == 3);
     REQUIRE(reply.meters_list().at(0).id() == 36);
     REQUIRE(reply.meters_list().at(0).model() == "8080");
     REQUIRE(reply.meters_list().at(0).meter_line() == rsf::MeterLineProto::ARES);
-    
+
     REQUIRE(reply.meters_list().at(1).id() == 37);
     REQUIRE(reply.meters_list().at(1).model() == "7070");
     REQUIRE(reply.meters_list().at(1).meter_line() == rsf::MeterLineProto::CRONOS);
@@ -101,7 +101,7 @@ TEST_CASE("Display_list 2")
     REQUIRE(reply.meters_list().at(2).model() == "2525");
     REQUIRE(reply.meters_list().at(2).meter_line() == rsf::MeterLineProto::ZEUS);
 
-    //reply.meters_list().begin(); //MedidorDeEnergiaProto - MedidorDeEnergiaProto*
+    // reply.meters_list().begin(); //MedidorDeEnergiaProto - MedidorDeEnergiaProto*
 }
 
 TEST_CASE("Display_list o brenno pediu")
@@ -110,11 +110,11 @@ TEST_CASE("Display_list o brenno pediu")
 
     for (int i = 0; i < 100; i++)
     {
-        list_test.push_back(Zeus("1000",i));
+        list_test.push_back(Zeus("1000", i));
     }
-    
+
     rsf::GetMetersReply reply;
-    
+
     UtilsApplicationServices::display_list(list_test, &reply);
 
     REQUIRE(reply.meters_list_size() == 100);

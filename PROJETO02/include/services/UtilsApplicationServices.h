@@ -3,7 +3,7 @@
 #include "Application.pb.h"
 #include "EletraEnergySolutions.h"
 
-class UtilsApplicationServices 
+class UtilsApplicationServices
 {
 public:
     static void display_list(const std::vector<MedidorDeEnergia> &lista_de_medidor, rsf::GetMetersReply *reply);

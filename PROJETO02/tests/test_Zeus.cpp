@@ -3,7 +3,7 @@
 
 TEST_CASE("test construtor zeus")
 {
-    Zeus medidor("9595",26);
+    Zeus medidor("9595", 26);
 
     REQUIRE(medidor.get_id() == 26);
     REQUIRE(medidor.get_model() == "9595");
@@ -13,7 +13,7 @@ TEST_CASE("test construtor zeus")
 
 TEST_CASE("test construtor zeus 2")
 {
-    Zeus medidor("8484",27);
+    Zeus medidor("8484", 27);
 
     REQUIRE(medidor.get_id() == 27);
     REQUIRE(medidor.get_line() == "ZEUS");
