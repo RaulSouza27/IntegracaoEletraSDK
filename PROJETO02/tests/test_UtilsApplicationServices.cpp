@@ -125,13 +125,3 @@ TEST_CASE("Display_list o brenno pediu")
         REQUIRE(it->id() == i++);
     }
 }
-    // for (const auto &a : ab)
-    // {
-    //     a;
-    // }
-
-    // for (auto it = ab.begin(); it != ab.end(); it++)
-    // {
-    //     *it;
-    // }
-

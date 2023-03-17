@@ -2,6 +2,8 @@
 #include "Services/ApplicationServices.h"
 #include <grpcpp/grpcpp.h>
 #include <iostream>
+#include "Application.h"
+#include <locale.h>
 
 using namespace std;
 

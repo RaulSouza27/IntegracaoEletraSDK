@@ -4,9 +4,12 @@
 #include "medidores_de_agua.h"
 #include "religadores.h"
 #include <iostream>
+#include <locale.h>
+
 int select;
 int main()
 {   
+    setlocale(LC_ALL,("pt_BR.UTF-8"));
     Religadores my_religadores;
     Menu my_intro;
     Controle my_controle;

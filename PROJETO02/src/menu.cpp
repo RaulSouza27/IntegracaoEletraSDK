@@ -180,7 +180,7 @@ auto Menu::get_int_by_terminal() -> int
     return z;
 }
 
-std::string Menu::get_string_by_terminal()
+auto Menu::get_string_by_terminal() -> std::string
 {
     std::string word;
     std::cin>>word;

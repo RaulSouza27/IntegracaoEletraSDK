@@ -15,9 +15,7 @@ struct ClasseTest
 };
 
 std::chrono::steady_clock::time_point m_StartTime;
-std::chrono::steady_clock::time_point m_StartTime_2;
 std::chrono::steady_clock::time_point m_EndTime;
-std::chrono::steady_clock::time_point m_EndTime_2;
 
 int main()
 {

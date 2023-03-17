@@ -25,7 +25,7 @@ public:
     void menu_meter_info(const std::string &meter_name);
     void menu_meters_info();
     auto get_int_by_terminal() -> int;
-    std::string get_string_by_terminal();
+    auto get_string_by_terminal() -> std::string;
     void print_meter_information(std::string complete_information, int id);
     void print_list_of_meters(const std::vector<MedidorDeEnergia> &lista_de_medidores_de_energia);
     auto convert_to_meter_line(int n) -> MeterLine;
