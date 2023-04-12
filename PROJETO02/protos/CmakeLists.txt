@@ -1,0 +1,46 @@
+find_package(Protobuf CONFIG REQUIRED)
+find_package(gRPC CONFIG REQUIRED)
+find_package(Threads)
+
+add_library(
+    ApplicationProto
+    
+    Application.proto
+)
+
+target_link_libraries(
+    ApplicationProto
+
+    PUBLIC
+        protobuf::libprotobuf
+        gRPC::grpc
+        gRPC::grpc++
+)
+
+target_compile_features(
+    ApplicationProto
+
+    PRIVATE
+        cxx_std_20
+)
+
+target_include_directories(
+    ApplicationProto
+
+    PUBLIC 
+        ${CMAKE_CURRENT_BINARY_DIR}
+)
+
+protobuf_generate(
+    TARGET ApplicationProto 
+    LANGUAGE cpp
+)
+
+get_target_property(grpc_cpp_plugin_location gRPC::grpc_cpp_plugin LOCATION)
+
+protobuf_generate(
+    TARGET ApplicationProto 
+    LANGUAGE grpc 
+    GENERATE_EXTENSIONS .grpc.pb.h .grpc.pb.cc
+    PLUGIN "protoc-gen-grpc=${grpc_cpp_plugin_location}"
+)

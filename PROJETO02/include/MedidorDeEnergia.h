@@ -9,6 +9,7 @@ enum class MeterLine
     APOLO,
     CRONOS,
     ZEUS,
+    UNKNOWN
 };
 
 class MedidorDeEnergia

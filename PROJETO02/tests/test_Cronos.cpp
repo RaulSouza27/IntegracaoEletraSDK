@@ -3,7 +3,7 @@
 
 TEST_CASE("teste do construtor cronos")
 {
-    Cronos medidor("9000",21);
+    Cronos medidor("9000", 21);
 
     REQUIRE(medidor.get_model() == "9000");
     REQUIRE(medidor.get_line() == "CRONOS");
@@ -13,7 +13,7 @@ TEST_CASE("teste do construtor cronos")
 
 TEST_CASE("teste do construtor cronos 2")
 {
-    Cronos medidor("9090",33);
+    Cronos medidor("9090", 33);
 
     REQUIRE(medidor.get_model() == "9090");
     REQUIRE(medidor.get_line() == "CRONOS");

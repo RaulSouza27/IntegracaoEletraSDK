@@ -1,9 +1,11 @@
 #include "Menu.h"
 #include <iostream>
+#include "MedidorDeEnergia.h"
 
 void Menu::menu_seletor()
 {
-    std::cout << "\n1.ZEUS\n2.ARES\n3.CRONOS\n4.APOLO\n5.VOLTAR AO MENU\n"<< std::endl;
+    std::cout << "\n1.ZEUS\n2.ARES\n3.CRONOS\n4.APOLO\n5.VOLTAR AO MENU\n"
+              << std::endl;
     std::cout << "ESCOLHA A LINHA QUE DESEJA ALTERAR" << std::endl;
 }
 void Menu::menu_insercao()
@@ -19,6 +21,22 @@ void Menu::menu_de_introducao()
 void Menu::menu_seperador()
 {
     std::cout << "**************************************************************" << std::endl;
+}
+
+auto Menu::convert_to_meter_line(int n) -> MeterLine
+{
+    switch (n)
+    {
+    case 1:
+        return MeterLine::APOLO;
+    case 2:
+        return MeterLine::ARES;
+    case 3:
+        return MeterLine::CRONOS;
+    case 4:
+        return MeterLine::ZEUS;
+    }
+    return MeterLine::UNKNOWN;
 }
 
 auto Menu::get_seletor(int n) -> Seletor
@@ -69,42 +87,42 @@ auto Menu::get_action(int n) -> Action
 
 void Menu::menu_start()
 {
-    std::cout<<"Bem vindo ao Console de informações da eletra"<<std::endl;
-    std::cout<<"Aqui vc tem acesso a diversas informações sobre a Eletra Energy Solutions"<<std::endl;
-    std::cout<<"Escolha uma das opções para acessar"<<std::endl;
-    std::cout<<"1 - Conheça as Linhas"<<std::endl;
-    std::cout<<"2 - Conheça todos os Medidores de energia"<<std::endl;
-    std::cout<<"3 - Conheça os Medidores de energia da linha ARES"<<std::endl;
-    std::cout<<"4 - Conheça os Medidores de energia da linha APOLO"<<std::endl;
-    std::cout<<"5 - Conheça os Medidores de energia da linha CRONOS"<<std::endl;
-    std::cout<<"6 - Conheça os Medidores de energia da linha ZEUS"<<std::endl;
-    std::cout<<"7 - Adicione um ou mais Medidores de energia na linha"<<std::endl;
-    std::cout<<"8 - Exclua um ou mais Medidores de energia na linha"<<std::endl;
-    std::cout<<"9 - Limpar a tela do console"<<std::endl;
-    std::cout<<"10 - Sair do console"<<std::endl;
+    std::cout << "Bem vindo ao Console de informações da eletra" << std::endl;
+    std::cout << "Aqui vc tem acesso a diversas informações sobre a Eletra Energy Solutions" << std::endl;
+    std::cout << "Escolha uma das opções para acessar" << std::endl;
+    std::cout << "1 - Conheça as Linhas" << std::endl;
+    std::cout << "2 - Conheça todos os Medidores de energia" << std::endl;
+    std::cout << "3 - Conheça os Medidores de energia da linha ARES" << std::endl;
+    std::cout << "4 - Conheça os Medidores de energia da linha APOLO" << std::endl;
+    std::cout << "5 - Conheça os Medidores de energia da linha CRONOS" << std::endl;
+    std::cout << "6 - Conheça os Medidores de energia da linha ZEUS" << std::endl;
+    std::cout << "7 - Adicione um ou mais Medidores de energia na linha" << std::endl;
+    std::cout << "8 - Exclua um ou mais Medidores de energia na linha" << std::endl;
+    std::cout << "9 - Limpar a tela do console" << std::endl;
+    std::cout << "10 - Sair do console" << std::endl;
 }
 
 void Menu::menu_decision()
 {
-    std::cout<<"1 - Conheça as Linhas"<<std::endl;
-    std::cout<<"2 - Conheça todos os Medidores de energia"<<std::endl;
-    std::cout<<"3 - Conheça os Medidores de energia da linha ARES"<<std::endl;
-    std::cout<<"4 - Conheça os Medidores de energia da linha APOLO"<<std::endl;
-    std::cout<<"5 - Conheça os Medidores de energia da linha CRONOS"<<std::endl;
-    std::cout<<"6 - Conheça os Medidores de energia da linha ZEUS"<<std::endl;
-    std::cout<<"7 - Adicione um ou mais Medidores de energia na linha "<<std::endl;
-    std::cout<<"8 - Exclua um ou mais Medidores de energia na linha "<<std::endl;
-    std::cout<<"9 - Limpar a tela do console"<<std::endl;
-    std::cout<<"10 - Sair do console"<<std::endl;
+    std::cout << "1 - Conheça as Linhas" << std::endl;
+    std::cout << "2 - Conheça todos os Medidores de energia" << std::endl;
+    std::cout << "3 - Conheça os Medidores de energia da linha ARES" << std::endl;
+    std::cout << "4 - Conheça os Medidores de energia da linha APOLO" << std::endl;
+    std::cout << "5 - Conheça os Medidores de energia da linha CRONOS" << std::endl;
+    std::cout << "6 - Conheça os Medidores de energia da linha ZEUS" << std::endl;
+    std::cout << "7 - Adicione um ou mais Medidores de energia na linha " << std::endl;
+    std::cout << "8 - Exclua um ou mais Medidores de energia na linha " << std::endl;
+    std::cout << "9 - Limpar a tela do console" << std::endl;
+    std::cout << "10 - Sair do console" << std::endl;
 }
 
 void Menu::menu_lines()
 {
-    std::cout<<"Os medidores de energia são divididos em 4 linhas"<<std::endl;
-    std::cout<<"Linha ZEUS - de medidores inteligentes"<<std::endl;
-    std::cout<<"Linha ARES - de medidores comerciais e industriais"<<std::endl;
-    std::cout<<"Linha APOLO - de medidores residenciais"<<std::endl;
-    std::cout<<"Linha CRONOS - de medidores residenciais"<<std::endl;
+    std::cout << "Os medidores de energia são divididos em 4 linhas" << std::endl;
+    std::cout << "Linha ZEUS - de medidores inteligentes" << std::endl;
+    std::cout << "Linha ARES - de medidores comerciais e industriais" << std::endl;
+    std::cout << "Linha APOLO - de medidores residenciais" << std::endl;
+    std::cout << "Linha CRONOS - de medidores residenciais" << std::endl;
 }
 
 void Menu::menu_indicador()
@@ -114,41 +132,42 @@ void Menu::menu_indicador()
 
 void Menu::menu_warning()
 {
-    std::cout<<"\nA INFORMAÇÃO INSERIDA É INVÁLIDA!!!\n"<<std::endl;
+    std::cout << "\nA INFORMAÇÃO INSERIDA É INVÁLIDA!!!\n"
+              << std::endl;
 }
 
 void Menu::menu_delete()
 {
-    std::cout<<"Deseja deletar algum medidor da lista ? "<<std::endl;
-    std::cout<<"Caso queira voltar ao menu, digite 0:"<<std::endl;
+    std::cout << "Deseja deletar algum medidor da lista ? " << std::endl;
+    std::cout << "Caso queira voltar ao menu, digite 0:" << std::endl;
 }
 
 void Menu::menu_info_delete()
 {
-    std::cout<<"Digite o id que deseja deletar: "<<std::endl;
+    std::cout << "Digite o id que deseja deletar: " << std::endl;
 }
 
 void Menu::menu_start_choice()
 {
-    std::cout<<"Escolha uma ação baseada no seu numero para começar"<<std::endl;
+    std::cout << "Escolha uma ação baseada no seu numero para começar" << std::endl;
 }
 
 void Menu::menu_meter_info(const std::string &meter_name)
 {
-    std::cout<<"Segue a lista com os medidores " + meter_name +", seus modelos e os IDs"<<std::endl;
+    std::cout << "Segue a lista com os medidores " + meter_name + ", seus modelos e os IDs" << std::endl;
 }
 
 void Menu::menu_meters_info()
 {
-    std::cout<<"Segue a lista com todas as linhas de medidores, seus modelos e os IDs"<<std::endl;
+    std::cout << "Segue a lista com todas as linhas de medidores, seus modelos e os IDs" << std::endl;
 }
 
 auto Menu::get_int_by_terminal() -> int
 {
     int z = 0;
     std::string word;
-    std::cin>>word;
-    if(std::cin.fail())
+    std::cin >> word;
+    if (std::cin.fail())
     {
         std::cin.clear();
     }
@@ -156,20 +175,33 @@ auto Menu::get_int_by_terminal() -> int
     {
         z = stoi(word);
     }
-    catch(const std::exception& e)
+    catch (const std::exception &e)
     {
         menu_warning();
     }
     return z;
 }
 
-std::string Menu::get_string_by_terminal()
+auto Menu::get_string_by_terminal() -> std::string
 {
     std::string word;
-    std::cin>>word;
+    std::cin >> word;
     if (std::cin.fail())
     {
         std::cin.clear();
     }
     return word;
+}
+
+void Menu::print_meter_information(std::string complete_information, int id)
+{
+    std::cout << "*****  " << id << "  *********  " + complete_information + "  **********\n";
+}
+
+void Menu::print_list_of_meters(const std::vector<MedidorDeEnergia> &lista_de_medidores_de_energia)
+{
+    for (const auto &medidor : lista_de_medidores_de_energia)
+    {
+        print_meter_information(medidor.mostrar_informacao_completa(), medidor.get_id());
+    }
 }

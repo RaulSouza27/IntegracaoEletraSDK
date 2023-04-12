@@ -3,7 +3,7 @@
 
 TEST_CASE("Teste construtor apolo")
 {
-    Apolo medidor("1000",10);
+    Apolo medidor("1000", 10);
 
     REQUIRE(medidor.get_model() == "1000");
     REQUIRE(medidor.get_id() == 10);
@@ -13,7 +13,7 @@ TEST_CASE("Teste construtor apolo")
 
 TEST_CASE("Teste construtor apolo 8021")
 {
-    Apolo medidor("8021",1);
+    Apolo medidor("8021", 1);
 
     REQUIRE(medidor.get_model() == "8021");
     REQUIRE(medidor.get_id() == 1);

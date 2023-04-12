@@ -1,25 +1,28 @@
 cmake_minimum_required(VERSION 3.17)
 
 PROJECT(
-    Projeto02
+    Application
 
     LANGUAGES CXX
 )
 
 add_subdirectory(tests)
+add_subdirectory(protos)
 
 add_library(
     ${PROJECT_NAME}lib
 
     src/Apolo.cpp
     src/Application.cpp
-    src/Ares.cpp
+    src/AresMeter.cpp
     src/Cronos.cpp
     src/EletraEnergySolution.cpp
     src/MedidorDeEnergia.cpp
     src/Menu.cpp
     src/Zeus.cpp
     src/fabrica_de_medidor.cpp
+    src/Services/ApplicationServices.cpp
+    src/Services/UtilsApplicationServices.cpp
 )
 
 add_executable(
@@ -33,6 +36,7 @@ target_include_directories(
 
     PUBLIC
         ./include
+        ${CMAKE_CURRENT_BINARY_DIR}
 )
 
 target_compile_features(
@@ -48,3 +52,11 @@ target_link_libraries(
     PRIVATE
         ${PROJECT_NAME}lib
 )
+
+target_link_libraries(
+    ${PROJECT_NAME}lib
+
+    PUBLIC
+        ApplicationProto
+)
+

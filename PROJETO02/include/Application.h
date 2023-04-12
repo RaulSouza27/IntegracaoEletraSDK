@@ -10,6 +10,7 @@ public:
     void add_meter();
     void delete_meter();
     void run_application();
+
 private:
     Menu my_menu;
     EletraEnergySolutions ees;

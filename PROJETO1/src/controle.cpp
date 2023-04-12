@@ -30,7 +30,6 @@ int Controle::get_select()
 void Controle::control_code_energy()
 {   
     system("color 06"); 
-    system("cls");
     my_display_energy.display_energy_meter();
     zeus_line.display_linha_zeus();
     apolo_line.display_linha_apolo();
@@ -40,21 +39,18 @@ void Controle::control_code_energy()
 void Controle::control_code_water()
 {
     system("color 01");
-    system("cls");
     my_hidro.display_medidores_de_agua();
     my_zlink.display_linha_zlink();
 }
 void Controle::control_code_religador()
 {
     system("color 03");
-    system("cls");
     my_display_religadores.display_religadores();
 }
 
 void Controle::all_products()
 {
     system("color 07");
-    system("cls");
     my_display_religadores.display_religadores();
     my_zlink.display_linha_zlink();
     zeus_line.display_linha_zeus();
@@ -68,7 +64,6 @@ void Controle::selection()
 {
     int select;
     select=get_select();
-    system("cls");
     while (1)
     {
         if(select==1)

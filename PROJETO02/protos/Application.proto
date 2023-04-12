@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package rsf;
+
+enum MeterLineProto
+{
+    UNKNOWN_METER_LINE = 0;
+    APOLO = 1;
+    ARES = 2;
+    CRONOS = 3;
+    ZEUS = 4;
+}
+
+message MedidorDeEnergiaProto
+{
+    MeterLineProto meter_line = 1;
+    string model = 2;
+    int32 id = 3;
+}
+
+service ApplicationProto
+{
+    rpc GetAvailableLines(EmptyRequest) returns (GetLinesReply);
+    rpc GetLinesOnMeterList(EmptyRequest) returns (GetLinesReply);
+    rpc GetMetersByLine(GetMetersByLineRequest) returns (GetMetersReply);
+    rpc GetAllMeters(EmptyRequest) returns (GetMetersReply);
+    rpc AddMeters(AddMetersRequest) returns (GetMetersReply);
+    rpc DeleteMeters(DeleteMetersRequest) returns (GetMetersReply);
+}
+
+message EmptyRequest
+{
+
+}
+message GetLinesReply
+{
+    repeated MeterLineProto meter_line = 1; 
+}
+
+message GetMetersReply
+{
+    repeated MedidorDeEnergiaProto meters_list = 1;
+}
+
+message AddMetersRequest
+{
+    repeated MedidorDeEnergiaProto meter = 1;
+}
+
+message DeleteMetersRequest
+{
+    repeated int32 id = 1;
+}
+
+message GetMetersByLineRequest
+{
+    MeterLineProto meter_line = 1;
+}
+
+
